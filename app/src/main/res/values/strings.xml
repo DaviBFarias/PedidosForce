@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Pedidos Force</string>
+    <string name="app_intro">Pedidos Force</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -13,4 +14,17 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="title1">Pedidos Force</string>
+    <string name="description1">Sua solução em vendas!</string>
+    <string name="botao1">Bem-vindo!</string>
+    <string name="mensagem1">Nós promovemos soluções para fazer você amar seu trabalho.</string>
+    <string name="final_mensagem">Bom trabalho! ;)</string>
+
+    <string name="grant_permissions">Liberar Acesso</string>
+    <string name="mis_grant_permissions">Liberar Acesso</string>
+    <string name="please_grant_permissions">Para prosseguir, clique em liberar o acesso.</string>
+    <string name="title_activity_pedidos">Pedidos</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
