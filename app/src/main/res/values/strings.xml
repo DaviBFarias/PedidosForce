@@ -27,4 +27,10 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <string name="input_cliente">Buscar Cliente</string>
+    <string name="input_tabela">Tabela de Preço</string>
+    <string name="input_pagamento">Forma de Pagamento</string>
+    <string name="input_observacao">Observação</string>
+    <string name="botao_item">ADICIONAR ITENS</string>
 </resources>
