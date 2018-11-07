@@ -33,4 +33,10 @@
     <string name="input_pagamento">Forma de Pagamento</string>
     <string name="input_observacao">Observação</string>
     <string name="botao_item">ADICIONAR ITENS</string>
+    <string name="desc_item">Quatidade de itens:</string>
+    <string name="qtd_item">0</string>
+    <string name="vlr_total">Valor Total:</string>
+    <string-array name="mostra_item">
+        <item>MOSTRAR ITENS</item>
+    </string-array>
 </resources>

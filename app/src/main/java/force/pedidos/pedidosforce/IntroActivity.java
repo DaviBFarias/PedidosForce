@@ -38,6 +38,7 @@ public class IntroActivity extends MaterialIntroActivity {
     public void onFinish() {
         super.onFinish();
         Toast.makeText(this, getResources().getString(R.string.final_mensagem), Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "Entendeu Andreilson?", Toast.LENGTH_SHORT).show();
         View v = new View(this);
         Intent login = new Intent(v.getContext(), LoginActivity.class);
         startActivity(login);
