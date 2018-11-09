@@ -11,6 +11,8 @@ import agency.tango.materialintroscreen.MessageButtonBehaviour;
 import agency.tango.materialintroscreen.SlideFragmentBuilder;
 
 public class IntroActivity extends MaterialIntroActivity {
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,8 +24,10 @@ public class IntroActivity extends MaterialIntroActivity {
             .description(getResources().getString(R.string.description1))
             .image(R.mipmap.forcavenda)
 
+
             //.possiblePermissions(new String[]{Manifest.permission.CALL_PHONE, Manifest.permission.READ_SMS})
             //.possiblePermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION})
+
 
             .build(),
             new MessageButtonBehaviour(new View.OnClickListener() {
@@ -43,4 +47,15 @@ public class IntroActivity extends MaterialIntroActivity {
         Intent login = new Intent(v.getContext(), LoginActivity.class);
         startActivity(login);
     }
+
+
+  /* @Override
+    public void finish() {
+        super.onFinish();
+        View v = new View(this);
+        Intent pedido = new Intent(v.getContext(), Pedidos.class);
+        startActivity(pedido);
+    }
+*/
+
 }
