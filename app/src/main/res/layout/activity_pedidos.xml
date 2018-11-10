@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/cliente2"
+        android:id="@+id/tbpreco"
         android:layout_width="285dp"
         android:layout_height="39dp"
         android:layout_marginStart="8dp"
@@ -38,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cliente" />
 
     <EditText
-        android:id="@+id/cliente3"
+        android:id="@+id/pagamento"
         android:layout_width="285dp"
         android:layout_height="39dp"
         android:layout_marginStart="8dp"
@@ -50,10 +50,10 @@
         android:maxLines="1"
         android:singleLine="true"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/cliente2" />
+        app:layout_constraintTop_toBottomOf="@+id/tbpreco" />
 
     <EditText
-        android:id="@+id/cliente4"
+        android:id="@+id/obs"
         android:layout_width="285dp"
         android:layout_height="39dp"
         android:layout_marginStart="8dp"
@@ -65,7 +65,7 @@
         android:maxLines="1"
         android:singleLine="true"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/cliente3" />
+        app:layout_constraintTop_toBottomOf="@+id/pagamento" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -112,7 +112,7 @@
         app:srcCompat="@android:drawable/checkbox_on_background" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/additem"
         android:layout_width="378dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -123,18 +123,20 @@
         android:textColor="@color/cardview_light_background"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cliente4" />
+        app:layout_constraintTop_toBottomOf="@+id/obs" />
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="410dp"
         android:layout_height="190dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="24dp"
         android:background="#5f6064"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cliente4" />
+        app:layout_constraintTop_toBottomOf="@+id/obs" />
 
     <TextView
         android:id="@+id/textView4"
@@ -147,7 +149,7 @@
         android:textColor="@color/colorWhite"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/additem" />
 
     <TextView
         android:id="@+id/textView5"
@@ -160,7 +162,7 @@
         android:textColor="@color/colorWhite"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/additem" />
 
     <Spinner
         android:id="@+id/spinner3"
