@@ -37,6 +37,10 @@
     <string name="desc_item">Quatidade de itens:</string>
     <string name="qtd_item">0</string>
     <string name="vlr_total">Valor Total:</string>
+
+    <string name="usuario">usuario:</string>
+    <string name="senha">senha:</string>
+
     <string-array name="mostra_item">
         <item>MOSTRAR ITENS</item>
     </string-array>
