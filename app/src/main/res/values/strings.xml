@@ -24,6 +24,7 @@
     <string name="mis_grant_permissions">Liberar Acesso</string>
     <string name="please_grant_permissions">Para prosseguir, clique em liberar o acesso.</string>
     <string name="title_activity_pedidos">Pedidos</string>
+    <string name="title_activity_menu">Menu</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>

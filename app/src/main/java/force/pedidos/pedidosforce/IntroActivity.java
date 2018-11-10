@@ -53,7 +53,7 @@ public class IntroActivity extends MaterialIntroActivity {
     public void finish() {
         super.onFinish();
         View v = new View(this);
-        Intent pedido = new Intent(v.getContext(), Pedidos.class);
+        Intent pedido = new Intent(v.getContext(), PedidosActivity.class);
         startActivity(pedido);
     }
 */
