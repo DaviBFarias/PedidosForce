@@ -63,8 +63,8 @@ public class PedidosActivity extends AppCompatActivity {
                 // testando retorno
                 String retorno = ped.cadastraPedido();
 
+                //exibido parametros da classe Pedido
                 int duration = Toast.LENGTH_SHORT;
-
                 Toast toast = Toast.makeText(context, retorno, duration);
                 toast.show();
 

@@ -13,7 +13,7 @@ public class Pedido {
      private String tabelaPreco;
      private String pagamento, obs;
 
-     public Pedido(int codigoPagamento, String cliente, String tabelaPreco, String pagemento, String obs){
+     public Pedido(int codigoPagamento, String cliente, String tabelaPreco, String pagamento, String obs){
           this.codigoPagamento = codigoPagamento;
           this.cliente = cliente;
           this.tabelaPreco = tabelaPreco;
