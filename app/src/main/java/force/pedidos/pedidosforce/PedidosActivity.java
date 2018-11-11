@@ -52,7 +52,7 @@ public class PedidosActivity extends AppCompatActivity {
                 EditText pagamento;
                 EditText obs;
 
-                //passando parametros
+                //passando parametros.
                 cliente = (EditText) findViewById(R.id.cliente);
                 tbpreco = (EditText) findViewById(R.id.tbpreco);
                 pagamento = (EditText) findViewById(R.id.pagamento);
