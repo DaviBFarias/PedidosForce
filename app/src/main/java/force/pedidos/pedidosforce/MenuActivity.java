@@ -13,23 +13,12 @@ public class MenuActivity extends AppCompatActivity {
 
 
 
-    //CardView card;
-
-
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-
-     //card =(CardView) findViewById(R.id.addpedido);
-
-     //card.setOnClickListener(this);
-
-        // ativar botao que chama a class autentica.
-
-        //Button botao = (Button) findViewById(R.id.pedido);
         CardView card =(CardView) findViewById(R.id.addpedido);
         card.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
