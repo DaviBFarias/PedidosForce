@@ -16,7 +16,7 @@
     </string>
     <string name="title1">Pedidos Force</string>
     <string name="description1">Sua solução em vendas!</string>
-    <string name="botao1">Bem-vindo!</string>
+    <string name="botao1">Iniciar</string>
     <string name="mensagem1">Nós promovemos soluções para fazer você amar seu trabalho.</string>
     <string name="final_mensagem">Bom trabalho! ;)</string>
 
@@ -37,25 +37,11 @@
     <string name="desc_item">Quatidade de itens:</string>
     <string name="qtd_item">0</string>
     <string name="vlr_total">Valor Total:</string>
-    <string name="text_cifra">R$:</string>
+
+    <string name="usuario">usuario:</string>
+    <string name="senha">senha:</string>
+
     <string-array name="mostra_item">
-    <item>MOSTRAR ITENS</item>
-    </string-array>
-    <string-array name="base_cliente">
-        <item>MAGAZINE LUIZA</item>
-        <item>SUBMARINO</item>
-        <item>WALMART</item>
-        <item>STAR COSMETICOS</item>
-        <item>PET LOVE</item>
-        <item>EXTRA</item>
-    </string-array>
-    <string-array name="base_tbmpreco">
-        <item>PADRÃO</item>
-        <item>PROMOCIONAL</item>
-    </string-array>
-    <string-array name="base_tipopagamento">
-        <item>Á VISTA</item>
-        <item>CARTÃO DE CRÉDITO</item>
-        <item>CARTÃO DE DÉBITO</item>
+        <item>MOSTRAR ITENS</item>
     </string-array>
 </resources>

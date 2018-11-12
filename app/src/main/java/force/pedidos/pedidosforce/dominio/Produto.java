@@ -6,7 +6,7 @@ public class Produto {
 
     private int codigoProduto;
     private String nomeProduto;
-
+    private ArrayList<Produto> arrayProduto = new ArrayList<Produto>();
 
 
     public int getCodigoProduto() {
@@ -25,7 +25,13 @@ public class Produto {
         this.nomeProduto = nomeProduto;
     }
 
+    public ArrayList<Produto> getArrayProduto() {
+        return arrayProduto;
+    }
 
+    public void setArrayProduto(ArrayList<Produto> arrayProduto) {
+        this.arrayProduto = arrayProduto;
+    }
 
 
 
