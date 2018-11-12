@@ -37,7 +37,7 @@
             android:label="@string/title_activity_pedidos" />
         <activity
             android:name=".MenuActivity"
-            android:label="@string/title_activity_menu"/>
+            android:label="@string/title_activity_menu" />
     </application>
 
 </manifest>

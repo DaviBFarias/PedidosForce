@@ -6,5 +6,11 @@
     <color name="colorDark">#000000</color>
     <color name="colorOrange">#4e4c4b</color>
     <color name="colorWhite">#ffffff</color>
-    <color name="cardview_light_background">#3F51B5</color>
+    <color name="green">#03581a</color>
+    <color name="yello">#fffd28</color>
+    <color name="red">#dc3019</color>
+    <color name="blue">#021e83</color>
+    <color name="backgroundcolor">#f4f4f4</color>
+
+
 </resources>

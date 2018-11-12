@@ -44,7 +44,8 @@ public class PedidosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pedidos);
         final Context context = this;
 
-    Button botao = (Button) findViewById(R.id.additem);
+    /*
+         Button botao = (Button) findViewById(R.id.additem);
         botao.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 EditText cliente;
@@ -58,15 +59,15 @@ public class PedidosActivity extends AppCompatActivity {
                 pagamento = (EditText) findViewById(R.id.pagamento);
                 obs = (EditText) findViewById(R.id.obs);
                 int codigoPagamento = 1;
-                Pedido ped = new Pedido(codigoPagamento, cliente.getText().toString(), tbpreco.getText().toString(),pagamento.getText().toString(),obs.getText().toString());
+                //Pedido ped = new Pedido(codigoPagamento, cliente.getText().toString(), tbpreco.getText().toString(),pagamento.getText().toString(),obs.getText().toString());
 
                 // testando retorno
-                String retorno = ped.cadastraPedido();
+                //String retorno = ped.cadastraPedido();
 
                 //exibido parametros da classe Pedido
                 int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, retorno, duration);
-                toast.show();
+                //Toast toast = Toast.makeText(context, retorno, duration);
+                //toast.show();
 
                 //limpando campos
                 cliente.setText("");
@@ -78,6 +79,8 @@ public class PedidosActivity extends AppCompatActivity {
 
 
         });
+
+        */
     }
 
 }
