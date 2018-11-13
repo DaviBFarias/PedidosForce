@@ -51,19 +51,4 @@ public class autoFireBase {
         firebaseAuth.signOut();
     }
 
-    public static boolean loginFirebase(String usuario, String senha, Activity contexto) {
-        firebaseAuth.signInWithEmailAndPassword(usuario, senha).addOnCompleteListener(contexto, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (!task.isSuccessful()) {
-                    Log.w("AUTH", "Falha ao efetuar o Login: ", task.getException());
-                    isLoged = false;
-                } else {
-                    isLoged = true;
-                    Log.d("AUTH", "Login Efetuado com sucesso!!!");
-                }
-            }
-        });
-        return isLoged;
-    }
 }
