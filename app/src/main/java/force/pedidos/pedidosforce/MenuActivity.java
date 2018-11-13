@@ -30,7 +30,7 @@ public class MenuActivity extends AppCompatActivity {
         CardView cardV =(CardView) findViewById(R.id.addcliente);
        cardV.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent digitarPedido = new Intent(v.getContext(), LoginActivity.class);
+                Intent digitarPedido = new Intent(v.getContext(), CadastroClienteActivity.class);
                 startActivity(digitarPedido);
             }
         });
