@@ -7,6 +7,10 @@ public class Cliente {
     private String cgcCpf;
     private String tipoCliente;
 
+    public Cliente(){
+
+    }
+
     public String getRazaoSocial() {
         return razaoSocial;
     }
