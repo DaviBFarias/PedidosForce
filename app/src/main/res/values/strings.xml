@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Pedidos Force</string>
     <string name="app_intro">Pedidos Force</string>
+    <string name="app_cadastrocliente">Cadastro de Cliente</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

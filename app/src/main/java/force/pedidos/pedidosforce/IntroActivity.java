@@ -40,6 +40,7 @@ import agency.tango.materialintroscreen.MaterialIntroActivity;
 import agency.tango.materialintroscreen.MessageButtonBehaviour;
 import agency.tango.materialintroscreen.SlideFragmentBuilder;
 import force.pedidos.pedidosforce.data.ClasseConexaoTeste;
+import force.pedidos.pedidosforce.data.ConexaoCliente;
 
 public class IntroActivity extends MaterialIntroActivity {
 
@@ -64,10 +65,15 @@ public class IntroActivity extends MaterialIntroActivity {
                 @Override
                 public void onClick(View v) {
                     //showMessage(getResources().getString(R.string.mensagem1));
-                    ClasseConexaoTeste con = new ClasseConexaoTeste(v.getContext());
-                    con.Inserir();
-                    showMessage(con.GetPessoa(1));
-                    con.Excluir(1);
+//                    ClasseConexaoTeste con = new ClasseConexaoTeste(v.getContext());
+//                    con.Inserir();
+//                    showMessage(con.GetPessoa(1));
+//                    con.Excluir(1);
+                    ConexaoCliente con = new ConexaoCliente(IntroActivity.this);
+                    con.cadastrarCliente("Davi", "123456", "Fisica",
+                            "Rua Joao", "Recife", "PE", "52032698");
+                    showMessage(con.getCliente("123456").getNomeCliente());
+                    con.excluirCliente("123456");
                 }
             }, getResources().getString(R.string.botao1)));
     }

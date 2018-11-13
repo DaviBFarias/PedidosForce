@@ -2,25 +2,24 @@ package force.pedidos.pedidosforce.dominio;
 
 public class Cliente {
 
-    private String razaoSocial;
-    private String nomeFantasia;
+    private String nomeCliente;
     private String cgcCpf;
     private String tipoCliente;
+    private String endereco;
+    private String cidade;
+    private String UF;
+    private String CEP;
 
-    public String getRazaoSocial() {
-        return razaoSocial;
+    public Cliente(){
+
     }
 
-    public void setRazaoSocial(String razaoSocial) {
-        this.razaoSocial = razaoSocial;
+    public String getNomeCliente() {
+        return nomeCliente;
     }
 
-    public String getNomeFantasia() {
-        return nomeFantasia;
-    }
-
-    public void setNomeFantasia(String nomeFantasia) {
-        this.nomeFantasia = nomeFantasia;
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
     }
 
     public String getCgcCpf() {
@@ -39,5 +38,35 @@ public class Cliente {
         this.tipoCliente = tipoCliente;
     }
 
+    public String getEndereco() {
+        return endereco;
+    }
 
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getUF() {
+        return UF;
+    }
+
+    public void setUF(String UF) {
+        this.UF = UF;
+    }
+
+    public String getCEP() {
+        return CEP;
+    }
+
+    public void setCEP(String CEP) {
+        this.CEP = CEP;
+    }
 }

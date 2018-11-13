@@ -21,7 +21,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        //db.execSQL("CREATE TABLE PESSOA ( ID NUMBER, NOME TEXT, VALOR TEXT);");
         StringBuilder stringBuilderCreateTable = new StringBuilder();
 
         stringBuilderCreateTable.append(" CREATE TABLE tb_pessoa (");
@@ -35,11 +34,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
         db.execSQL(stringBuilderCreateTable.toString());
-//        try {
-//            createTables( db );
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+
+
+        StringBuilder stringBuilderCreateTable2 = new StringBuilder();
+
+        stringBuilderCreateTable2.append(" CREATE TABLE cadastro_cliente (");
+        stringBuilderCreateTable2.append("        cgcCpf      TEXT    NOT NULL PRIMARY KEY,            ");
+        stringBuilderCreateTable2.append("        nomeCliente      TEXT,            ");
+        stringBuilderCreateTable2.append("        tipoCliente      TEXT    NOT NULL,            ");
+        stringBuilderCreateTable2.append("        endereco      TEXT    NOT NULL,            ");
+        stringBuilderCreateTable2.append("        cidade      TEXT    NOT NULL,            ");
+        stringBuilderCreateTable2.append("        UF      TEXT    NOT NULL,            ");
+        stringBuilderCreateTable2.append("        CEP      TEXT     NOT NULL )           ");
+
+
+        db.execSQL(stringBuilderCreateTable2.toString());
     }
 
     @Override
