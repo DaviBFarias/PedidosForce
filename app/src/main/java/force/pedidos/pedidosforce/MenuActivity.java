@@ -19,7 +19,7 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        CardView card =(CardView) findViewById(R.id.addpedido);
+       CardView card =(CardView) findViewById(R.id.addpedido);
         card.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent digitarPedido = new Intent(v.getContext(), PedidosActivity.class);
@@ -27,21 +27,16 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-
-    /*
-    @Override
-    public void onClick(View v) {
-        Intent i;
-        switch (v.getId()){
-
-            case R.id.addpedido : i = new Intent(this, PedidosActivity.class); startActivity(i); break;
-
-            default:Toast.makeText(this, "Entendeu Andreilson?", Toast.LENGTH_SHORT).show(); break;
-
-        }
+        CardView cardV =(CardView) findViewById(R.id.addcliente);
+       cardV.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent digitarPedido = new Intent(v.getContext(), LoginActivity.class);
+                startActivity(digitarPedido);
+            }
+        });
 
     }
-   */
+
+
+
 }
