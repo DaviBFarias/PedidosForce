@@ -31,16 +31,18 @@ public class CadastroClienteActivity extends AppCompatActivity {
        cepCliente = (EditText) findViewById(R.id.cepCliente);
        ufCliente = (Spinner)  findViewById(R.id.spinnerUF);
 
-/*
+
         CardView c1 =(CardView) findViewById(R.id.delete);
         c1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                Toast.makeText(v.getContext(), "Entendeu Andreilson?", Toast.LENGTH_SHORT).show();
 
             }
 
         });
 
-        CardView c2 =(CardView) findViewById(R.id.edite);
+      /*  CardView c2 =(CardView) findViewById(R.id.edite);
         c2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 

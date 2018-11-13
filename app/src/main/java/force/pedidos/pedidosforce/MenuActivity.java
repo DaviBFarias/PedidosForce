@@ -27,6 +27,16 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        CardView cardVi =(CardView) findViewById(R.id.consultprocesso);
+        cardVi.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                    Toast.makeText(v.getContext(), "Opção não disponível", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
         CardView cardV =(CardView) findViewById(R.id.addcliente);
        cardV.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
