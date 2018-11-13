@@ -8,14 +8,17 @@ import force.pedidos.pedidosforce.database.DatabaseHelper;
 import force.pedidos.pedidosforce.dominio.Cliente;
 
 public class ConexaoCliente {
+
     DatabaseHelper databaseHelper;
 
     public ConexaoCliente(Context context){
         databaseHelper =  new DatabaseHelper(context);
     }
+
     public void cadastrarCliente(String nomeCliente, String cgcCpf, String tipoCliente, String endereco,
                                  String cidade, String UF, String CEP){
         if(getCliente(cgcCpf) == null) {
+
             ContentValues contentValues = new ContentValues();
 
             /*MONTA OS PARAMENTROS PARA REALIZAR UPDATE NOS CAMPOS*/
@@ -27,14 +30,16 @@ public class ConexaoCliente {
             contentValues.put("UF", UF);
             contentValues.put("CEP", CEP);
 
-            /*REALIZANDO INSE NA TABELA*/
+            /*REALIZANDO INSERT NA TABELA*/
             databaseHelper.GetConexaoDataBase().insert("cadastro_cliente", null, contentValues);
         }
     }
+
     public Integer excluirCliente(String cgcCpf){
         //EXCLUINDO  REGISTRO E RETORNANDO O NÚMERO DE LINHAS AFETADAS
         return databaseHelper.GetConexaoDataBase().delete("cadastro_cliente","cgcCpf = ?", new String[]{cgcCpf});
     }
+
     public Cliente getCliente(String cgcCpf){
 
 
@@ -73,7 +78,9 @@ public class ConexaoCliente {
             contentValues.put("UF", UF);
             contentValues.put("CEP", CEP);
 
-            databaseHelper.GetConexaoDataBase().update("cadastro_cliente", contentValues, "cgcCpf= '"+ cgcCpf+"'", new String[]{cgcCpf});
+            databaseHelper.GetConexaoDataBase().update("cadastro_cliente", contentValues, "cgcCpf= ?", new String[]{cgcCpf} );
+            //databaseHelper.GetConexaoDataBase().update("cadastro_cliente", contentValues, "cgcCpf= '"+ cgcCpf+"'", null);
+            //new String[]{cgcCpf}
         }
     }
 }
