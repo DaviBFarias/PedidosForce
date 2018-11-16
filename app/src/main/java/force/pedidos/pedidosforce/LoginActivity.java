@@ -35,13 +35,18 @@ public class LoginActivity extends AppCompatActivity  {
         Button botao = (Button) findViewById(R.id.login);
         botao.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
                 EditText usuario;
                 EditText senha;
+
                 usuario = (EditText) findViewById(R.id.usuario);
                 senha = (EditText) findViewById(R.id.senha);
                 String usuarioUsado = usuario.getText().toString();
                 String senhaUsada = criptografarSenha(senha.getText().toString().trim());
                 login(usuarioUsado, senhaUsada);
+
+                usuario.setText(String.valueOf("andreilson@pedidosforce.com"));
+                senha.setText(String.valueOf("andreilson"));
 
             }
         });

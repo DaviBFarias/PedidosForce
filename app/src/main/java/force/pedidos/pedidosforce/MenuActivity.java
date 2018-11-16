@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import force.pedidos.pedidosforce.dominio.Produto;
+
 public class MenuActivity extends AppCompatActivity {
 
 
@@ -27,11 +29,11 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        CardView cardVi =(CardView) findViewById(R.id.consultprocesso);
+        CardView cardVi =(CardView) findViewById(R.id.consultpedidos);
         cardVi.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                    Toast.makeText(v.getContext(), "Opção não disponível", Toast.LENGTH_SHORT).show();
+                Intent produtos = new Intent(v.getContext(), ProdutosActivity.class);
+                startActivity(produtos);
 
             }
         });
