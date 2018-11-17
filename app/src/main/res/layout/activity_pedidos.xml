@@ -7,65 +7,42 @@
     android:layout_height="match_parent"
     tools:context=".PedidosActivity">
 
-    <EditText
-        android:id="@+id/cliente"
-        android:layout_width="285dp"
-        android:layout_height="39dp"
+    <Spinner
+        android:id="@+id/spinnerPagamento"
+        android:layout_width="337dp"
+        android:layout_height="34dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="36dp"
-        android:hint="@string/input_cliente"
-        android:imeOptions="actionUnspecified"
-        android:inputType="text"
-        android:maxLines="1"
-        android:singleLine="true"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/tbpreco"
-        android:layout_width="285dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="20dp"
-        android:hint="@string/input_tabela"
-        android:imeOptions="actionUnspecified"
-        android:inputType="text"
-        android:maxLines="1"
-        android:singleLine="true"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/cliente" />
-
-    <EditText
-        android:id="@+id/pagamento"
-        android:layout_width="285dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
-        android:hint="@string/input_pagamento"
-        android:imeOptions="actionUnspecified"
-        android:inputType="text"
-        android:maxLines="1"
-        android:singleLine="true"
+        android:layout_marginTop="28dp"
+        android:entries="@array/base_tipopagamento"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/tbpreco" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerTabela" />
+
+    <Spinner
+        android:id="@+id/spinnerTabela"
+        android:layout_width="337dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="28dp"
+        android:entries="@array/base_tbmpreco"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCliente" />
 
     <EditText
         android:id="@+id/obs"
-        android:layout_width="285dp"
+        android:layout_width="333dp"
         android:layout_height="39dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="28dp"
         android:hint="Observações"
         android:imeOptions="actionUnspecified"
         android:inputType="text"
         android:maxLines="1"
         android:singleLine="true"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/pagamento" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerPagamento" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -179,7 +156,7 @@
         android:id="@+id/toolbar2"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="52dp"
         android:background="#FFE6E6E6"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
@@ -190,13 +167,24 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="64dp"
         android:text="@string/vlr_total"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <Spinner
+        android:id="@+id/spinnerCliente"
+        android:layout_width="337dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="36dp"
+        android:entries="@array/base_cliente"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import force.pedidos.pedidosforce.dominio.Produto;
+
 public class MenuActivity extends AppCompatActivity {
 
 
@@ -26,6 +28,16 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(digitarPedido);
             }
         });
+
+        CardView cardVi =(CardView) findViewById(R.id.consultpedidos);
+        cardVi.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent produtos = new Intent(v.getContext(), ProdutosActivity.class);
+                startActivity(produtos);
+
+            }
+        });
+
 
         CardView cardV =(CardView) findViewById(R.id.addcliente);
        cardV.setOnClickListener(new View.OnClickListener() {

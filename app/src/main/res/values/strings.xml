@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Pedidos Force</string>
     <string name="app_intro">Pedidos Force</string>
-    <string name="app_cadastrocliente">Cadastro de Cliente</string>
+    <string name="app_cadastrocliente">Cadastro Cliente</string>
+    <string name="app_produtos">Buscar Produtos</string>
+    <string name="app_pedidos">Pedidos</string>
+
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -93,4 +96,5 @@
         <item>SP</item>
         <item>TO</item>
     </string-array>
+    <string name="title_activity_produtos">ProdutosActivity</string>
 </resources>
