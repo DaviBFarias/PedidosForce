@@ -1,9 +1,5 @@
 package force.pedidos.pedidosforce.dominio;
 
-import android.text.Editable;
-
-import java.util.ArrayList;
-
 public class Pedido {
 
      private int codigoPagamento;
