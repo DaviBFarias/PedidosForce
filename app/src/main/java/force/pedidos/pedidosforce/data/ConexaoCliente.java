@@ -12,6 +12,9 @@ import force.pedidos.pedidosforce.dominio.Cliente;
 public class ConexaoCliente {
 
     DatabaseHelper databaseHelper;
+    public ConexaoCliente(){
+
+    }
 
     public ConexaoCliente(Context context){
         databaseHelper =  new DatabaseHelper(context);

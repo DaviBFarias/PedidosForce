@@ -1,16 +1,20 @@
 package force.pedidos.pedidosforce.dominio;
 
 import org.junit.Test;
+
+import force.pedidos.pedidosforce.data.ConexaoCliente;
+
 import static org.junit.Assert.assertEquals;
 
 public class ClienteTest {
 
+    Cliente cl = new Cliente();
+    ConexaoCliente cn = new ConexaoCliente();
+
     @Test
     public void testObjetoClienteCriadoComSucesso() {
 
-        System.out.println("Instanciando a classe Cliente");
-        Cliente cl = new Cliente();
-
+        System.out.println("Instanciando teste da classe Cliente...");
         System.out.println("Atribuindo valores a todos os atributos da classe criada.");
         cl.setCgcCpf("12345678910");
         cl.setTipoCliente("PF");
@@ -28,12 +32,22 @@ public class ClienteTest {
         assertEquals("","Rua Manoel Gusmão", cl.getEndereco());
         assertEquals("","Nome Teste", cl.getNomeCliente());
         System.out.println("Criação do objeto Cliente validada com sucesso");
-
-        //Assert.fail("Falha na Criação do objeto Cliente validada com sucesso");
     }
 
     @Test
-    public void testeCadastrarClienteBanco(){
+    public void testCadastrarCliente(){
+        cn.cadastrarCliente(cl.getNomeCliente(), cl.getCgcCpf(), cl.getTipoCliente(), cl.getEndereco(),
+                cl.getCidade(), cl.getUF(), cl.getCEP());
+    }
 
+    @Test
+    public void testGetCliente(){
+        Cliente clBanco = cn.getCliente(cl.getCgcCpf());
+        assertEquals("","12345678910", clBanco.getCgcCpf());
+        assertEquals("","520212230", clBanco.getCEP());
+        assertEquals("","PF", clBanco.getTipoCliente());
+        assertEquals("","Cabrobró", clBanco.getCidade());
+        assertEquals("","Rua Manoel Gusmão", clBanco.getEndereco());
+        assertEquals("","Nome Teste", clBanco.getNomeCliente());
     }
 }
