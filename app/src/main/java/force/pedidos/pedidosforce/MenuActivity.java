@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -27,12 +25,11 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        CardView cardVi =(CardView) findViewById(R.id.consultprocesso);
+        CardView cardVi =(CardView) findViewById(R.id.consultpedidos);
         cardVi.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                Intent digitarPedido = new Intent(v.getContext(), PedidoScrolActivity.class);
-                startActivity(digitarPedido);
+                Intent produtos = new Intent(v.getContext(), ProdutosActivity.class);
+                startActivity(produtos);
 
             }
         });

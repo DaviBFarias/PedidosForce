@@ -1,6 +1,5 @@
 package force.pedidos.pedidosforce;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -9,7 +8,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -94,7 +92,7 @@ public class CadastroClienteActivity extends AppCompatActivity {
                 if ( repository.getCliente(cpfCliente.getText().toString()) != null){
                     Cliente cli =  repository.getCliente(cpfCliente.getText().toString());
                     atualizaTelaCliente(cli);
-                    Toast.makeText(v.getContext(),"Cliente Encotrado:" + repository.getCliente(cpfCliente.getText().toString() ).getNomeCliente(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(),"Cliente Encontrado:" + cli.getNomeCliente(), Toast.LENGTH_SHORT).show();
                 } else{
                     Toast.makeText(v.getContext(), "Cliente não encontrado!", Toast.LENGTH_SHORT).show();
                 }
