@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import java.util.ArrayList;
+
 import force.pedidos.pedidosforce.database.DatabaseHelper;
 import force.pedidos.pedidosforce.dominio.Cliente;
 
@@ -62,6 +64,33 @@ public class ConexaoCliente {
             cl.setCEP(cursor.getString(cursor.getColumnIndex("CEP")));
             return cl;
         }
+    }
+
+    public ArrayList<Cliente> getClienteArray () {
+
+        ArrayList<Cliente> clientes = new ArrayList<>();
+
+        Cursor cursor = databaseHelper.GetConexaoDataBase().rawQuery("SELECT * FROM cadastro_cliente ", null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do  {
+                    //RETORNANDO CLIENTE
+                    Cliente cl = new Cliente();
+
+                    cl.setNomeCliente(cursor.getString(cursor.getColumnIndex("nomeCliente")));
+                    cl.setCgcCpf(cursor.getString(cursor.getColumnIndex("cgcCpf")));
+                    cl.setTipoCliente(cursor.getString(cursor.getColumnIndex("tipoCliente")));
+                    cl.setEndereco(cursor.getString(cursor.getColumnIndex("endereco")));
+                    cl.setCidade(cursor.getString(cursor.getColumnIndex("cidade")));
+                    cl.setUF(cursor.getString(cursor.getColumnIndex("UF")));
+                    cl.setCEP(cursor.getString(cursor.getColumnIndex("CEP")));
+                    clientes.add(cl);
+                    //cursor.moveToNext();
+
+            } while(cursor.moveToNext());
+
+        }
+        return clientes;
     }
 
     public void alterarCliente(String nomeCliente, String cgcCpf, String tipoCliente, String endereco,

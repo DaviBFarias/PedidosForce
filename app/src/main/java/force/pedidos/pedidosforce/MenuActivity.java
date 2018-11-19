@@ -31,7 +31,8 @@ public class MenuActivity extends AppCompatActivity {
         cardVi.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                    Toast.makeText(v.getContext(), "Opção não disponível", Toast.LENGTH_SHORT).show();
+                Intent digitarPedido = new Intent(v.getContext(), PedidoScrolActivity.class);
+                startActivity(digitarPedido);
 
             }
         });

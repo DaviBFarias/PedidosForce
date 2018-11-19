@@ -69,4 +69,9 @@ public class Cliente {
     public void setCEP(String CEP) {
         this.CEP = CEP;
     }
+
+    @Override
+    public String toString() {
+        return this.nomeCliente;
+    }
 }

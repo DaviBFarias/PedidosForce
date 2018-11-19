@@ -7,11 +7,17 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
+import force.pedidos.pedidosforce.data.ConexaoCliente;
+import force.pedidos.pedidosforce.dominio.Cliente;
 import force.pedidos.pedidosforce.dominio.Pedido;
 
 public class PedidosActivity extends AppCompatActivity {
@@ -43,6 +49,13 @@ public class PedidosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedidos);
         final Context context = this;
+        final ConexaoCliente repository = new ConexaoCliente( PedidosActivity.this);
+        ArrayList<Cliente> clientesArray = repository.getClienteArray();
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, clientesArray);
+
+        final Spinner SpinnerCliente = (Spinner)  findViewById(R.id.spinnerCliente);
+        SpinnerCliente.setAdapter(adapter);
+
 
     /*
          Button botao = (Button) findViewById(R.id.additem);

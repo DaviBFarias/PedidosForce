@@ -7,6 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".PedidosActivity">
 
+
+
+
     <Spinner
         android:id="@+id/spinnerPagamento"
         android:layout_width="337dp"
@@ -94,8 +97,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="56dp"
-        android:background="#FF8390DE"
+        android:layout_marginTop="48dp"
+        android:background="@android:color/holo_green_light"
         android:text="@string/botao_item"
         android:textColor="@color/cardview_light_background"
         android:textSize="16sp"
@@ -105,8 +108,8 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="410dp"
-        android:layout_height="190dp"
-        android:layout_marginTop="28dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="36dp"
         android:background="#5f6064"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
@@ -155,8 +158,8 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
         android:background="#FFE6E6E6"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
@@ -167,9 +170,9 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
         android:text="@string/vlr_total"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -183,8 +186,48 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="36dp"
-        android:entries="@array/base_cliente"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="20dp"
+        android:background="#FF8390DE"
+        android:text="Enviar"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="100dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="20dp"
+        android:background="#FF8390DE"
+        android:text="Salvar"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="100dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="20dp"
+        android:background="#FF8390DE"
+        android:text="Excluir"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+
 
 </android.support.constraint.ConstraintLayout>
