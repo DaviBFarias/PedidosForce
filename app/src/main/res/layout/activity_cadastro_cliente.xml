@@ -6,231 +6,198 @@
     android:layout_height="match_parent"
     tools:context=".CadastroClienteActivity">
 
-    <ScrollView
-        android:id="@+id/cadastro_form"
-        android:layout_width="395dp"
-        android:layout_height="615dp"
-
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/CgcCpf"
-        android:layout_width="349dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="48dp"
-        android:ems="10"
-        android:hint="CPF"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cadastro_form" />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="8dp"
+                tools:ignore="MissingConstraints">
 
-    <EditText
-        android:id="@+id/nomeCliente"
-        android:layout_width="349dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Nome"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CgcCpf" />
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="10dp">
 
-    <EditText
-        android:id="@+id/enderecoCliente"
-        android:layout_width="349dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Endereço"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nomeCliente" />
+                    <EditText
+                        android:id="@+id/CgcCpf"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="20dp"
+                        android:ems="10"
+                        android:hint="CPF"
+                        android:inputType="text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:layout_editor_absoluteY="48dp" />
 
-    <EditText
-        android:id="@+id/cidadeCliente"
-        android:layout_width="349dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:hint="Cidade"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enderecoCliente" />
+                    <EditText
+                        android:id="@+id/nomeCliente"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="20dp"
+                        android:ems="10"
+                        android:hint="Nome"
+                        android:inputType="text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/CgcCpf" />
 
-    <EditText
-        android:id="@+id/cepCliente"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="CEP"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cidadeCliente" />
+                    <EditText
+                        android:id="@+id/enderecoCliente"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="20dp"
+                        android:ems="10"
+                        android:hint="Endereço"
+                        android:inputType="text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/nomeCliente" />
 
-    <Spinner
-        android:id="@+id/spinnerUF"
-        android:layout_width="112dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="24dp"
-        android:entries="@array/base_uf"
-        app:layout_constraintStart_toEndOf="@+id/cepCliente"
-        app:layout_constraintTop_toBottomOf="@+id/cidadeCliente" />
+                    <EditText
+                        android:id="@+id/cidadeCliente"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="20dp"
+                        android:ems="10"
+                        android:hint="Cidade"
+                        android:inputType="text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/enderecoCliente" />
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/grava"
-        android:layout_width="85dp"
-        android:layout_height="78dp"
-        android:layout_margin="10dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:layout_constraintStart_toStartOf="@+id/toolbar3"
-        app:layout_constraintTop_toTopOf="@+id/toolbar3">
+                    <EditText
+                        android:id="@+id/cepCliente"
+                        android:layout_width="210dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="20dp"
+                        android:ems="10"
+                        android:hint="CEP"
+                        android:inputType="text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cidadeCliente" />
 
+                    <Spinner
+                        android:id="@+id/spinnerUF"
+                        android:layout_width="112dp"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="20dp"
+                        android:entries="@array/base_uf"
+                        app:layout_constraintStart_toEndOf="@+id/cepCliente"
+                        app:layout_constraintTop_toBottomOf="@+id/cidadeCliente" />
+
+                </android.support.constraint.ConstraintLayout>
+            </ScrollView>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:gravity="bottom"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="@drawable/circulo_menu_azul"
-                android:padding="10dp"
-                app:srcCompat="@drawable/ic_finish" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
 
+                <android.support.v7.widget.CardView
+                    android:id="@+id/edite"
+                    android:clickable="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:layout_constraintStart_toEndOf="@+id/edite">
 
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/circulo_menu_azul"
+                        android:padding="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="10dp"
+                        app:srcCompat="@drawable/ic_edit_24dp" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/delete"
+                    android:clickable="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:layout_constraintStart_toEndOf="@+id/edite">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/circulo_menu_azul"
+                        android:padding="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        app:srcCompat="@drawable/ic_delete_black_24dp" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/pesquisa"
+                    android:clickable="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:layout_constraintStart_toEndOf="@+id/delete">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/circulo_menu_azul"
+                        android:padding="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        app:srcCompat="@drawable/ic_search_black_24dp" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/grava"
+                    android:clickable="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:layout_constraintStart_toEndOf="@+id/pesquisa">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/circulo_menu_azul"
+                        android:padding="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        app:srcCompat="@drawable/ic_check_black_24dp" />
+                </android.support.v7.widget.CardView>
+
+                </LinearLayout>
         </LinearLayout>
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/edite"
-        android:layout_width="85dp"
-        android:layout_height="78dp"
-        android:layout_margin="10dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:layout_constraintStart_toEndOf="@+id/pesquisa"
-        app:layout_constraintTop_toTopOf="@+id/toolbar3">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="@drawable/circulo_menu_azul"
-                android:padding="10dp"
-                app:srcCompat="@drawable/ic_edit_24dp" />
-
-
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/delete"
-        android:layout_width="85dp"
-        android:layout_height="78dp"
-        android:layout_margin="10dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:layout_constraintStart_toEndOf="@+id/edite"
-        app:layout_constraintTop_toTopOf="@+id/toolbar3">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="@drawable/circulo_menu_azul"
-                android:padding="10dp"
-                app:srcCompat="@drawable/ic_delete_black_24dp" />
-
-
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/pesquisa"
-        android:layout_width="85dp"
-        android:layout_height="78dp"
-        android:layout_margin="10dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="24dp"
-        android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:layout_constraintStart_toEndOf="@+id/grava"
-        app:layout_constraintTop_toTopOf="@+id/toolbar3">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="@drawable/circulo_menu_azul"
-                android:padding="10dp"
-                app:srcCompat="@drawable/ic_search_black_24dp" />
-
-
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar3"
-        android:layout_width="388dp"
-        android:layout_height="99dp"
-        android:layout_marginTop="410dp"
-        android:background="@color/backgroundcolor"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintStart_toStartOf="@+id/cadastro_form"
-        app:layout_constraintTop_toTopOf="@+id/cadastro_form" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
