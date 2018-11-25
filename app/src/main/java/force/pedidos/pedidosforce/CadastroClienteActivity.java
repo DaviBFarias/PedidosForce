@@ -41,6 +41,8 @@ public class CadastroClienteActivity extends AppCompatActivity {
        ufCliente = (Spinner)  findViewById(R.id.spinnerUF);
 
 
+
+
         final ConexaoCliente repository = new ConexaoCliente( CadastroClienteActivity.this);
 
         // EXCLUIR CLIENTES DA BASE DE DADOS
