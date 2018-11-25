@@ -127,7 +127,7 @@
                     android:layout_marginTop="28dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView4"
-                    app:srcCompat="@android:drawable/checkbox_on_background" />
+                    app:srcCompat="@drawable/ic_speaker_notes_black_24dp" />
 
                 <EditText
                     android:id="@+id/obs"
