@@ -39,10 +39,11 @@
     <string name="input_tabela">Tabela de Preço</string>
     <string name="input_pagamento">Forma de Pagamento</string>
     <string name="input_observacao">Observação</string>
-    <string name="botao_item">ADICIONAR ITENS</string>
+    <string name="botao_item">ADICIONAR/EDITAR ITENS</string>
     <string name="desc_item">Quatidade de itens:</string>
     <string name="qtd_item">0</string>
-    <string name="vlr_total">Valor Total:</string>
+    <string name="valor_itens">0,00</string>
+    <string name="vlr_total">Valor Total: R$</string>
 
     <string name="usuario">usuario:</string>
     <string name="senha">senha:</string>
