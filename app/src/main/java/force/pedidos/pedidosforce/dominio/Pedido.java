@@ -1,23 +1,25 @@
 package force.pedidos.pedidosforce.dominio;
 
+import java.util.ArrayList;
+
 public class Pedido {
 
-     private int codigoPagamento;
-    // private Cliente cliente;
+    private int codigoPagamento;
     private String cliente;
-     //private TabelaPreco tabelaPreco;
-     private String tabelaPreco;
-     private String pagamento, obs;
+    private String tabelaPreco;
+    private String pagamento, obs;
+    private ArrayList<ItemPedido> itens;
 
-     public Pedido(int codigoPagamento, String cliente, String tabelaPreco, String pagamento, String obs){
-          this.codigoPagamento = codigoPagamento;
-          this.cliente = cliente;
-          this.tabelaPreco = tabelaPreco;
-          this.pagamento = pagamento;
-          this.obs = obs;
+    public Pedido(){};
 
-     }
-
+    public Pedido(int codigoPagamento, String cliente, String tabelaPreco, String pagamento, String obs, ArrayList<ItemPedido> itens){
+        this.codigoPagamento = codigoPagamento;
+        this.cliente = cliente;
+        this.tabelaPreco = tabelaPreco;
+        this.pagamento = pagamento;
+        this.obs = obs;
+        this.itens = itens;
+    }
 
     public int getCodigoPagamento() {
         return codigoPagamento;
@@ -59,16 +61,11 @@ public class Pedido {
         this.obs = obs;
     }
 
-    public String cadastraPedido(){
+    public ArrayList<ItemPedido> getItens() {
+        return itens;
+    }
 
-
-
-     return cliente + " " + tabelaPreco + " " + pagamento + " " +obs;
-
-     }
-
-
-
-
-
+    public void setItens(ArrayList<ItemPedido> itens) {
+        this.itens = itens;
+    }
 }

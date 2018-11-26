@@ -1,13 +1,17 @@
 package force.pedidos.pedidosforce.dominio;
 
-import java.util.ArrayList;
 
 public class Produto {
 
     private int codigoProduto;
     private String nomeProduto;
-    private ArrayList<Produto> arrayProduto = new ArrayList<Produto>();
 
+    public Produto(){};
+
+    public Produto(int codigoProduto, String nomeProduto) {
+        this.setCodigoProduto(codigoProduto);
+        this.setNomeProduto(nomeProduto);
+    }
 
     public int getCodigoProduto() {
         return codigoProduto;
@@ -24,15 +28,4 @@ public class Produto {
     public void setNomeProduto(String nomeProduto) {
         this.nomeProduto = nomeProduto;
     }
-
-    public ArrayList<Produto> getArrayProduto() {
-        return arrayProduto;
-    }
-
-    public void setArrayProduto(ArrayList<Produto> arrayProduto) {
-        this.arrayProduto = arrayProduto;
-    }
-
-
-
 }

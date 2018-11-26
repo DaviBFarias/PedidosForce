@@ -22,33 +22,71 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         StringBuilder stringBuilderCreateTable = new StringBuilder();
+        stringBuilderCreateTable.append("CREATE TABLE cadastro_cliente (\n" +
+                "    cgcCpf      TEXT NOT NULL\n" +
+                "                     PRIMARY KEY,\n" +
+                "    nomeCliente TEXT NOT NULL,\n" +
+                "    tipoCliente TEXT NOT NULL,\n" +
+                "    endereco    TEXT NOT NULL,\n" +
+                "    cidade      TEXT NOT NULL,\n" +
+                "    UF          TEXT NOT NULL,\n" +
+                "    CEP         TEXT NOT NULL\n" +
+                ");");
+        db.execSQL(stringBuilderCreateTable.toString());
 
-        stringBuilderCreateTable.append(" CREATE TABLE tb_pessoa (");
-        stringBuilderCreateTable.append("        id_pessoa      INTEGER PRIMARY KEY AUTOINCREMENT, ");
-        stringBuilderCreateTable.append("        ds_nome        TEXT    NOT NULL,            ");
-        stringBuilderCreateTable.append("        ds_endereco    TEXT    NOT NULL,            ");
-        stringBuilderCreateTable.append("        fl_sexo        TEXT    NOT NULL,            ");
-        stringBuilderCreateTable.append("        dt_nascimento  TEXT    NOT NULL,            ");
-        stringBuilderCreateTable.append("        fl_estadoCivil TEXT    NOT NULL,            ");
-        stringBuilderCreateTable.append("        fl_ativo       INT     NOT NULL )           ");
+        stringBuilderCreateTable = new StringBuilder();
+        stringBuilderCreateTable.append("CREATE TABLE pedidos (\n" +
+                "    id             INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
+                "    cgcCpf         TEXT    NOT NULL,\n" +
+                "    tabelaPreco    TEXT    NOT NULL,\n" +
+                "    formaPagamento TEXT    NOT NULL,\n" +
+                "    observacao     TEXT    NOT NULL,\n" +
+                "    idItens        INTEGER NOT NULL\n" +
+                ");");
+        db.execSQL(stringBuilderCreateTable.toString());
 
+        stringBuilderCreateTable = new StringBuilder();
+        stringBuilderCreateTable.append("CREATE TABLE produtos (\n" +
+                "    codProduto  INTEGER NOT NULL\n" +
+                "                        PRIMARY KEY,\n" +
+                "    nomeProduto TEXT    NOT NULL\n" +
+                ");");
+        db.execSQL(stringBuilderCreateTable.toString());
 
+        stringBuilderCreateTable = new StringBuilder();
+        stringBuilderCreateTable.append("CREATE TABLE itens_pedido (\n" +
+                "    idItem     INTEGER PRIMARY KEY AUTOINCREMENT\n" +
+                "                       NOT NULL,\n" +
+                "    idPedido   INTEGER NOT NULL,\n" +
+                "    codProduto INTEGER NOT NULL,\n" +
+                "    qtdProduto INTEGER NOT NULL,\n" +
+                "    observacao TEXT\n" +
+                ");");
+        db.execSQL(stringBuilderCreateTable.toString());
+
+        stringBuilderCreateTable = new StringBuilder();
+        stringBuilderCreateTable.append("INSERT INTO cadastro_cliente (CEP,UF,cidade,endereco,tipoCliente,nomeCliente,cgcCpf) " +
+                "VALUES (52369852,'PE','Recife','Rua Samoel Mendes','PF','Roberval Meridiano',12345678925);");
+        db.execSQL(stringBuilderCreateTable.toString());
+        stringBuilderCreateTable = new StringBuilder();
+        stringBuilderCreateTable.append("INSERT INTO cadastro_cliente (CEP,UF,cidade,endereco,tipoCliente,nomeCliente,cgcCpf) " +
+                "VALUES (12369852,'PE','Olinda','Rua Feira Nova','PF','Juliana Alberta',65485678925);");
+        db.execSQL(stringBuilderCreateTable.toString());
+        stringBuilderCreateTable = new StringBuilder();
+        stringBuilderCreateTable.append("INSERT INTO cadastro_cliente (CEP,UF,cidade,endereco,tipoCliente,nomeCliente,cgcCpf) " +
+                "VALUES (28969835,'PE','Recife','Av Sebastiao','PF','Tamires Farias',56987678925);");
+        db.execSQL(stringBuilderCreateTable.toString());
+        stringBuilderCreateTable = new StringBuilder();
+        stringBuilderCreateTable.append("INSERT INTO produtos (nomeProduto,codProduto) VALUES ('Linha CD2345 Azul',1);");
+        db.execSQL(stringBuilderCreateTable.toString());
+        stringBuilderCreateTable = new StringBuilder();
+        stringBuilderCreateTable.append("INSERT INTO produtos (nomeProduto,codProduto) VALUES ('Linha CD2345 Amarela',2);");
+        db.execSQL(stringBuilderCreateTable.toString());
+        stringBuilderCreateTable = new StringBuilder();
+        stringBuilderCreateTable.append("INSERT INTO produtos (nomeProduto,codProduto) VALUES ('Linha CD012 Verde',3);");
         db.execSQL(stringBuilderCreateTable.toString());
 
 
-        StringBuilder stringBuilderCreateTable2 = new StringBuilder();
-
-        stringBuilderCreateTable2.append(" CREATE TABLE cadastro_cliente (");
-        stringBuilderCreateTable2.append("        cgcCpf      TEXT    NOT NULL PRIMARY KEY,            ");
-        stringBuilderCreateTable2.append("        nomeCliente      TEXT,            ");
-        stringBuilderCreateTable2.append("        tipoCliente      TEXT    NOT NULL,            ");
-        stringBuilderCreateTable2.append("        endereco      TEXT    NOT NULL,            ");
-        stringBuilderCreateTable2.append("        cidade      TEXT    NOT NULL,            ");
-        stringBuilderCreateTable2.append("        UF      TEXT    NOT NULL,            ");
-        stringBuilderCreateTable2.append("        CEP      TEXT     NOT NULL )           ");
-
-
-        db.execSQL(stringBuilderCreateTable2.toString());
     }
 
     @Override
