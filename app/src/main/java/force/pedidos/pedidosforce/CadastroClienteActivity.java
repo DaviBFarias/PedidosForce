@@ -50,26 +50,57 @@ public class CadastroClienteActivity extends AppCompatActivity {
         botaoDeletar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                 if(repository.excluirCliente(cpfCliente.getText().toString()) >= 1){
+
+                // verifica tamanho do CPF;
+                if (cpfCliente.getText().toString().length()!=11){
+
+                    Toast.makeText(v.getContext(), "CPF inválido!", Toast.LENGTH_SHORT).show();
+
+                }
+
+              else if(repository.excluirCliente(cpfCliente.getText().toString()) >= 1){
                      Toast.makeText(v.getContext(), "Cliente Excluido!", Toast.LENGTH_SHORT).show();
-                 } else {
+
+                 }
+
+                else {
+
                      Toast.makeText(v.getContext(), "Cliente Não Excluído!", Toast.LENGTH_SHORT).show();
                    }
+
                  limpaTelaCliente();
             }
 
         });
+
         // EDITANDO O CLIENTE  NA BASE DE DADOS
        CardView botaoEditar =(CardView) findViewById(R.id.edite);
         botaoEditar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                if ( repository.getCliente(cpfCliente.getText().toString()) != null) {
+                // verifica tamanho do CPF;
+                if (cpfCliente.getText().toString().length()!=11){
+
+                    Toast.makeText(v.getContext(), "CPF inválido!", Toast.LENGTH_SHORT).show();
+
+                }
+                // verifica campos vazios da tela de cadastro.
+                else if(cpfCliente.getText().toString().equals("") ||nomeCliente.getText().toString().equals("") || enderecoCliente.getText().toString().equals("")
+                        || cidadeCliente.getText().toString().equals("") || cepCliente.getText().toString().equals("") || ufCliente.toString().equals("")){
+
+                    Toast.makeText(v.getContext(), "Preencha todos os campos para continuar!", Toast.LENGTH_SHORT).show();
+
+                }
+
+
+               else if ( repository.getCliente(cpfCliente.getText().toString()) != null) {
                     Cliente cli = repository.getCliente(cpfCliente.getText().toString());
                     repository.alterarCliente(nomeCliente.getText().toString(), cpfCliente.getText().toString(),"",enderecoCliente.getText().toString(),cidadeCliente.getText().toString(), ufCliente.getSelectedItem().toString(),cepCliente.getText().toString());
                     Toast.makeText(v.getContext(), "Cliente Alterado!", Toast.LENGTH_SHORT).show();
                     limpaTelaCliente();
-                } else {
+                }
+
+               else {
                     Toast.makeText(v.getContext(), "Cliente não encontrado!", Toast.LENGTH_SHORT).show();
                 }
 
@@ -81,9 +112,29 @@ public class CadastroClienteActivity extends AppCompatActivity {
         botaoGravar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                repository.cadastrarCliente(nomeCliente.getText().toString(), cpfCliente.getText().toString(),"",enderecoCliente.getText().toString(),cidadeCliente.getText().toString(), ufCliente.getSelectedItem().toString(),cepCliente.getText().toString());
-                Toast.makeText(v.getContext(), "Cliente Inserido!", Toast.LENGTH_SHORT).show();
-                limpaTelaCliente();
+                // verifica tamanho do CPF;
+                if (cpfCliente.getText().toString().length()!=11){
+
+                    Toast.makeText(v.getContext(), "CPF inválido!", Toast.LENGTH_SHORT).show();
+
+                }
+
+
+                // verifica campos vazios da tela de cadastro.
+              else if(cpfCliente.getText().toString().equals("") ||nomeCliente.getText().toString().equals("") || enderecoCliente.getText().toString().equals("")
+                        || cidadeCliente.getText().toString().equals("") || cepCliente.getText().toString().equals("") || ufCliente.toString().equals("")){
+
+                    Toast.makeText(v.getContext(), "Preencha todos os campos para continuar!", Toast.LENGTH_SHORT).show();
+
+                }
+
+
+               else {
+
+                   repository.cadastrarCliente(nomeCliente.getText().toString(), cpfCliente.getText().toString(), "", enderecoCliente.getText().toString(), cidadeCliente.getText().toString(), ufCliente.getSelectedItem().toString(), cepCliente.getText().toString());
+                   Toast.makeText(v.getContext(), "Cliente Inserido!", Toast.LENGTH_SHORT).show();
+                   limpaTelaCliente();
+               }
             }
         });
 
@@ -91,11 +142,29 @@ public class CadastroClienteActivity extends AppCompatActivity {
         CardView botaoConsultar =(CardView) findViewById(R.id.pesquisa);
         botaoConsultar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if ( repository.getCliente(cpfCliente.getText().toString()) != null){
+
+             if (cpfCliente.getText().toString().length()!=11){
+
+                    Toast.makeText(v.getContext(), "CPF inválido!", Toast.LENGTH_SHORT).show();
+
+                }
+
+                // verifica campos vazios da tela de cadastro.
+             else if (cpfCliente.getText().toString().equals("")){
+
+                    Toast.makeText(v.getContext(), "Preencha todos os campos para continuar!", Toast.LENGTH_SHORT).show();
+
+                }
+
+                // verifica tamanho do CPF;
+
+             else if ( repository.getCliente(cpfCliente.getText().toString()) != null){
                     Cliente cli =  repository.getCliente(cpfCliente.getText().toString());
                     atualizaTelaCliente(cli);
                     Toast.makeText(v.getContext(),"Cliente Encontrado:" + cli.getNomeCliente(), Toast.LENGTH_SHORT).show();
-                } else{
+                }
+
+             else{
                     Toast.makeText(v.getContext(), "Cliente não encontrado!", Toast.LENGTH_SHORT).show();
                 }
 
