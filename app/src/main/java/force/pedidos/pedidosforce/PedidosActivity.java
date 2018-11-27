@@ -18,12 +18,14 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import force.pedidos.pedidosforce.data.ConexaoCliente;
+import force.pedidos.pedidosforce.data.ConexaoPedido;
 import force.pedidos.pedidosforce.dominio.Cliente;
 import force.pedidos.pedidosforce.dominio.Pedido;
 
 public class PedidosActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
+    Pedido pedido = new Pedido();
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -49,7 +51,6 @@ public class PedidosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedidos);
-        final Context context = this;
         final ConexaoCliente repository = new ConexaoCliente( PedidosActivity.this);
         ArrayList<Cliente> clientesArray = repository.getClienteArray();
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, clientesArray);
@@ -57,41 +58,45 @@ public class PedidosActivity extends AppCompatActivity {
         final Spinner SpinnerCliente = (Spinner)  findViewById(R.id.spinnerCliente);
         SpinnerCliente.setAdapter(adapter);
 
-        final Pedido pedido = new Pedido();
-
 
         Button botaoItem = (Button) findViewById(R.id.additem);
         botaoItem.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                Intent itens = new Intent(v.getContext(), ItemPedidoActivity.class);
+                Intent itens = new Intent(PedidosActivity.this, ItemPedidoActivity.class);
                 itens.putExtra("sampleObject", pedido);
                 startActivity(itens);
-
             }
 
         });
 
-        Button botaoSalvar = (Button) findViewById(R.id.additem);
-        botaoSalvar.setOnClickListener(new View.OnClickListener() {
+        Button botaoEnviar = (Button) findViewById(R.id.button);
+        botaoEnviar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-           Spinner  cliente  = (Spinner)findViewById(R.id.spinnerCliente);
-           Spinner  tabela   = (Spinner)findViewById(R.id.spinnerTabela);
-           Spinner  pagamento  = (Spinner)findViewById(R.id.spinnerPagamento);
-           EditText obs = (EditText)findViewById(R.id.obs);
+                Spinner  cliente  = (Spinner)findViewById(R.id.spinnerCliente);
+                Spinner  tabela   = (Spinner)findViewById(R.id.spinnerTabela);
+                Spinner  pagamento  = (Spinner)findViewById(R.id.spinnerPagamento);
+                EditText obs = (EditText)findViewById(R.id.obs);
 
-           pedido.setCliente(cliente.getSelectedItem().toString());
-           pedido.setPagamento(pagamento.getSelectedItem().toString());
-           pedido.setObs(obs.getText().toString());
-           pedido.setTabelaPreco(tabela.getSelectedItem().toString());
+                pedido.setCliente(cliente.getSelectedItem().toString());
+                pedido.setPagamento(pagamento.getSelectedItem().toString());
+                pedido.setObs(obs.getText().toString());
+                pedido.setTabelaPreco(tabela.getSelectedItem().toString());
 
-
+                ConexaoPedido cp = new ConexaoPedido(PedidosActivity.this);
+                cp.cadastrarPedido(pedido);
             }
-
         });
-
-
     }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+        //Verificando se há algum pedido na memória
+        Intent intent = getIntent();
+        if(getIntent().hasExtra("sampleObject")){
+            pedido = (Pedido) intent.getSerializableExtra("sampleObject");
+            ((EditText)findViewById(R.id.textView5)).setText(pedido.getItens().size());
+        }
+    }
 }

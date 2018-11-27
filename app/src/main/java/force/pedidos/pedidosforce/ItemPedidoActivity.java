@@ -1,31 +1,36 @@
 package force.pedidos.pedidosforce;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import force.pedidos.pedidosforce.data.ConexaoProdutos;
+import force.pedidos.pedidosforce.dominio.ItemPedido;
 import force.pedidos.pedidosforce.dominio.Pedido;
 import force.pedidos.pedidosforce.dominio.Produto;
 
 public class ItemPedidoActivity extends AppCompatActivity {
 
     private List<Produto> produtoList = new ArrayList<>();
+    private ArrayList<ItemPedido> itensPedido = new ArrayList<>();
     private RecyclerView recyclerView;
     private ProdutosAdapter prAdapter;
     private ConexaoProdutos repository = new ConexaoProdutos( this);
-    Intent intent = getIntent();
-    Pedido pedido = (Pedido) intent.getSerializableExtra("sampleObject");
+    Pedido pedido = new Pedido();
 
 
     @Override
@@ -51,12 +56,33 @@ public class ItemPedidoActivity extends AppCompatActivity {
         });
 
         Button botaoAdicionar = (Button) findViewById(R.id.adicionarItens);
-        botaoBuscar.setOnClickListener(new View.OnClickListener() {
+        botaoAdicionar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //recyclerView.getAdapter()
+                int qtdItens = recyclerView.getAdapter().getItemCount();
+                for (int i=0;i<qtdItens;i++){
+                    CheckBox checkItem = recyclerView.getChildAt(i).findViewById(R.id.checkItem);
+                    if(checkItem.isChecked()){
+                        TextView codItem = recyclerView.getChildAt(i).findViewById(R.id.codItem);
+                        TextView qtdItem = recyclerView.getChildAt(i).findViewById(R.id.qtdItem);
+                        ItemPedido ip = new ItemPedido(Integer.parseInt(codItem.getText().toString()),
+                                Integer.parseInt(qtdItem.getText().toString()), "");
+                        itensPedido.add(ip);
+                    }
+                }
+                Intent intent = getIntent();
+                pedido = (Pedido) intent.getSerializableExtra("sampleObject");
+                pedido.setItens(itensPedido);
             }
         });
 
+        Button botaoSalvar = (Button) findViewById(R.id.salvarItens);
+        botaoSalvar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent pedido = new Intent(ItemPedidoActivity.this, PedidosActivity.class);
+                pedido.putExtra("sampleObject", pedido);
+                startActivity(pedido);
+            }
+        });
 
 
     }

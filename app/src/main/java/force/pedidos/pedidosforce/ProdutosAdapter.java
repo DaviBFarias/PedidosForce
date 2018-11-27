@@ -22,12 +22,14 @@ public class ProdutosAdapter extends RecyclerView.Adapter<ProdutosAdapter.MyView
         CardView cv;
         public TextView nomeItem;
         public TextView saldoItem;
+        public TextView codItem;
         CheckBox checkItem;
         EditText qtdItem;
 
         public MyViewHolder(View view) {
             super(view);
             cv = (CardView)itemView.findViewById(R.id.cv_item);
+            codItem = (TextView)itemView.findViewById(R.id.codItem);
             nomeItem = (TextView)itemView.findViewById(R.id.nomeItem);
             saldoItem = (TextView)itemView.findViewById(R.id.saldoItem);
             checkItem = (CheckBox)itemView.findViewById(R.id.checkItem);
@@ -51,7 +53,8 @@ public class ProdutosAdapter extends RecyclerView.Adapter<ProdutosAdapter.MyView
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Produto pr = listaProdutos.get(position);
-        holder.nomeItem.setText(String.valueOf(pr.getNomeProduto().substring(0,16)));
+        holder.codItem.setText(String.valueOf(pr.getCodigoProduto()));
+        holder.nomeItem.setText(String.valueOf(pr.getNomeProduto().substring(0,14)));
         holder.saldoItem.setText(String.valueOf(pr.getSaldoProduto()));
         //holder.qtdItem.setText("");
     }
