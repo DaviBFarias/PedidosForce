@@ -17,7 +17,6 @@ public class ConexaoPedido {
     ConexaoProdutos cp;
 
     public ConexaoPedido(){
-
     }
 
     public ConexaoPedido(Context context){
@@ -52,7 +51,7 @@ public class ConexaoPedido {
             contentValues.put("idPedido", idPedido);
             contentValues.put("codProduto", codProduto);
             contentValues.put("qtdProduto", item.getQtdProduto());
-            if(item.getObsItem() != null) {
+            if(item.getObsItem() != null || !item.getObsItem().equals("")) {
                 contentValues.put("observacao", item.getObsItem());
             }
 
@@ -138,7 +137,8 @@ public class ConexaoPedido {
     }
 
     public int getIdUltimoPedidoSalvo(){
-        Cursor cursor = databaseHelper.GetConexaoDataBase().rawQuery("SELECT max(id) as id FROM pedidos", null);
-        return cursor.getInt(cursor.getColumnIndex("id"));
+        Cursor cursor = databaseHelper.GetConexaoDataBase().rawQuery("SELECT max(id) FROM pedidos", null);
+        cursor.moveToFirst();
+        return Integer.parseInt(cursor.getString(0));
     }
 }

@@ -90,15 +90,16 @@ public class ConexaoProdutos {
 
     public int getEstoqueProduto(int codProduto){
         Cursor cursor = databaseHelper.GetConexaoDataBase().rawQuery("SELECT saldoProduto FROM produtos where codProduto = "+ codProduto, null);
+        cursor.moveToFirst();
         return cursor.getInt(cursor.getColumnIndex("saldoProduto"));
     }
 
-    public void atualizarEstoqueProduto(int idProduto, int estoqueAtual){
+    public void atualizarEstoqueProduto(int codProduto, int estoqueAtual){
         ContentValues contentValues = new ContentValues();
 
         /*MONTA OS PARAMENTROS PARA REALIZAR UPDATE NOS CAMPOS*/
         contentValues.put("saldoProduto", estoqueAtual);
 
-        databaseHelper.GetConexaoDataBase().update("produtos", contentValues, "idProduto= "+ idProduto, null);
+        databaseHelper.GetConexaoDataBase().update("produtos", contentValues, "codProduto= "+ codProduto, null);
     }
 }
