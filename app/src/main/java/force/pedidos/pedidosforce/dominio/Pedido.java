@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Pedido {
 
-    private int codigoPagamento;
+    private int idPedido;
     private String cliente;
     private String tabelaPreco;
     private String pagamento, obs;
@@ -12,8 +12,8 @@ public class Pedido {
 
     public Pedido(){};
 
-    public Pedido(int codigoPagamento, String cliente, String tabelaPreco, String pagamento, String obs, ArrayList<ItemPedido> itens){
-        this.codigoPagamento = codigoPagamento;
+    public Pedido(int idPedido, String cliente, String tabelaPreco, String pagamento, String obs, ArrayList<ItemPedido> itens){
+        this.idPedido = idPedido;
         this.cliente = cliente;
         this.tabelaPreco = tabelaPreco;
         this.pagamento = pagamento;
@@ -21,12 +21,12 @@ public class Pedido {
         this.itens = itens;
     }
 
-    public int getCodigoPagamento() {
-        return codigoPagamento;
+    public int getIdPedido() {
+        return idPedido;
     }
 
-    public void setCodigoPagamento(int codigoPagamento) {
-        this.codigoPagamento = codigoPagamento;
+    public void setIdPedido(int idPedido) {
+        this.idPedido = idPedido;
     }
 
     public String getCliente() {
