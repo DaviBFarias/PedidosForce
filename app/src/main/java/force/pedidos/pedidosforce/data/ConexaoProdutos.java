@@ -1,5 +1,6 @@
 package force.pedidos.pedidosforce.data;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
@@ -38,6 +39,7 @@ public class ConexaoProdutos {
 
             pr.setCodigoProduto(cursor.getInt(cursor.getColumnIndex("codProduto")));
             pr.setNomeProduto(cursor.getString(cursor.getColumnIndex("nomeProduto")));
+            pr.setSaldoProduto(cursor.getInt(cursor.getColumnIndex("saldoProduto")));
             return pr;
         }
     }
@@ -84,5 +86,19 @@ public class ConexaoProdutos {
 
     public void alterarProduto(Produto pr){
         //Não implementado
+    }
+
+    public int getEstoqueProduto(int codProduto){
+        Cursor cursor = databaseHelper.GetConexaoDataBase().rawQuery("SELECT saldoProduto FROM produtos where codProduto = "+ codProduto, null);
+        return cursor.getInt(cursor.getColumnIndex("saldoProduto"));
+    }
+
+    public void atualizarEstoqueProduto(int idProduto, int estoqueAtual){
+        ContentValues contentValues = new ContentValues();
+
+        /*MONTA OS PARAMENTROS PARA REALIZAR UPDATE NOS CAMPOS*/
+        contentValues.put("saldoProduto", estoqueAtual);
+
+        databaseHelper.GetConexaoDataBase().update("produtos", contentValues, "idProduto= "+ idProduto, null);
     }
 }

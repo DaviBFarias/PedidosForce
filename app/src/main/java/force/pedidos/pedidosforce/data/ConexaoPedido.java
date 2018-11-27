@@ -14,6 +14,7 @@ import force.pedidos.pedidosforce.dominio.Produto;
 public class ConexaoPedido {
 
     DatabaseHelper databaseHelper;
+    ConexaoProdutos cp;
 
     public ConexaoPedido(){
 
@@ -21,9 +22,11 @@ public class ConexaoPedido {
 
     public ConexaoPedido(Context context){
         databaseHelper =  new DatabaseHelper(context);
+        cp = new ConexaoProdutos(context);
     }
 
     public void cadastrarPedido(Pedido pd){
+
         //Salvando cabeçalho dos pedidos
         ContentValues contentValues = new ContentValues();
 
@@ -41,12 +44,13 @@ public class ConexaoPedido {
         ArrayList<ItemPedido> ip = new ArrayList<>();
         ip = pd.getItens();
         for (ItemPedido item : ip) {
+            int codProduto = item.getCodProduto();
             //Salvando cabeçalho dos pedidos
             contentValues = new ContentValues();
 
             /*MONTA OS PARAMENTROS PARA REALIZAR INSERT NOS CAMPOS*/
             contentValues.put("idPedido", idPedido);
-            contentValues.put("codProduto", item.getCodProduto());
+            contentValues.put("codProduto", codProduto);
             contentValues.put("qtdProduto", item.getQtdProduto());
             if(item.getObsItem() != null) {
                 contentValues.put("observacao", item.getObsItem());
@@ -54,6 +58,10 @@ public class ConexaoPedido {
 
             /*REALIZANDO INSERT NA TABELA*/
             databaseHelper.GetConexaoDataBase().insert("itens_pedido", null, contentValues);
+
+            //Atualizando estoque
+            int estoqueAtual = cp.getEstoqueProduto(codProduto) - 1;
+            cp.atualizarEstoqueProduto(codProduto, estoqueAtual);
         }
     }
 
