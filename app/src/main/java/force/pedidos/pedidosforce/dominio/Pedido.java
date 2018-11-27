@@ -1,14 +1,16 @@
 package force.pedidos.pedidosforce.dominio;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Pedido {
+public class Pedido implements Serializable {
 
     private int idPedido;
     private String cliente;
     private String tabelaPreco;
     private String pagamento, obs;
     private ArrayList<ItemPedido> itens;
+
 
     public Pedido(){};
 

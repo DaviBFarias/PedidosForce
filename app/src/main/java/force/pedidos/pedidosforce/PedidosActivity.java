@@ -57,16 +57,35 @@ public class PedidosActivity extends AppCompatActivity {
         final Spinner SpinnerCliente = (Spinner)  findViewById(R.id.spinnerCliente);
         SpinnerCliente.setAdapter(adapter);
 
+        final Pedido pedido = new Pedido();
 
 
-
-
-         Button botao = (Button) findViewById(R.id.additem);
-        botao.setOnClickListener(new View.OnClickListener() {
+        Button botaoItem = (Button) findViewById(R.id.additem);
+        botaoItem.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
                 Intent itens = new Intent(v.getContext(), ItemPedidoActivity.class);
+                itens.putExtra("sampleObject", pedido);
                 startActivity(itens);
+
+            }
+
+        });
+
+        Button botaoSalvar = (Button) findViewById(R.id.additem);
+        botaoSalvar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+           Spinner  cliente  = (Spinner)findViewById(R.id.spinnerCliente);
+           Spinner  tabela   = (Spinner)findViewById(R.id.spinnerTabela);
+           Spinner  pagamento  = (Spinner)findViewById(R.id.spinnerPagamento);
+           EditText obs = (EditText)findViewById(R.id.obs);
+
+           pedido.setCliente(cliente.getSelectedItem().toString());
+           pedido.setPagamento(pagamento.getSelectedItem().toString());
+           pedido.setObs(obs.getText().toString());
+           pedido.setTabelaPreco(tabela.getSelectedItem().toString());
+
 
             }
 

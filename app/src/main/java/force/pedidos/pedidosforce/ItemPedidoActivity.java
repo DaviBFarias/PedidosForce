@@ -1,5 +1,6 @@
 package force.pedidos.pedidosforce;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import force.pedidos.pedidosforce.data.ConexaoProdutos;
+import force.pedidos.pedidosforce.dominio.Pedido;
 import force.pedidos.pedidosforce.dominio.Produto;
 
 public class ItemPedidoActivity extends AppCompatActivity {
@@ -22,6 +24,9 @@ public class ItemPedidoActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ProdutosAdapter prAdapter;
     private ConexaoProdutos repository = new ConexaoProdutos( this);
+    Intent intent = getIntent();
+    Pedido pedido = (Pedido) intent.getSerializableExtra("sampleObject");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +49,24 @@ public class ItemPedidoActivity extends AppCompatActivity {
                 atualizarRegistros(nome);
             }
         });
+
+        Button botaoAdicionar = (Button) findViewById(R.id.adicionarItens);
+        botaoBuscar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //recyclerView.getAdapter()
+            }
+        });
+
+
+
     }
 
     private void prepareData() {
         produtoList = repository.getProdutoArray();
+    }
+
+    private void gravarItensPedido(){
+        //pedido.setItens(produtoList);
     }
 
     private void atualizarRegistros(String nome) {

@@ -14,6 +14,7 @@ import org.w3c.dom.Text;
 import java.util.List;
 
 import force.pedidos.pedidosforce.dominio.ItemPedido;
+import force.pedidos.pedidosforce.dominio.Produto;
 
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder>{
 
@@ -40,15 +41,15 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder>{
         }
     }
 
-    List<ItemPedido> itensPedido;
+    List<Produto> produtos;
 
-    RVAdapter(List<ItemPedido> itensPedido){
-        this.itensPedido = itensPedido;
+    RVAdapter(List<Produto> produtos){
+        this.produtos = produtos;
     }
 
     @Override
     public int getItemCount() {
-        return itensPedido.size();
+        return produtos.size();
     }
 
     @Override
@@ -61,7 +62,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder>{
     @Override
     public void onBindViewHolder(ItemViewHolder itemViewHolder, int i) {
         //itemViewHolder.checkItem  .setText(persons.get(i).name);
-        itemViewHolder.nomeItem.setText(itensPedido.get(i).getObsItem());
+        itemViewHolder.nomeItem.setText(produtos.get(i).getNomeProduto());
     }
 
     @Override
