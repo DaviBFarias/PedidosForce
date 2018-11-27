@@ -1,6 +1,7 @@
 package force.pedidos.pedidosforce;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -57,43 +58,21 @@ public class PedidosActivity extends AppCompatActivity {
         SpinnerCliente.setAdapter(adapter);
 
 
-    /*
+
+
+
          Button botao = (Button) findViewById(R.id.additem);
         botao.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                EditText cliente;
-                EditText tbpreco;
-                EditText pagamento;
-                EditText obs;
 
-                //passando parametros.
-                cliente = (EditText) findViewById(R.id.cliente);
-                tbpreco = (EditText) findViewById(R.id.tbpreco);
-                pagamento = (EditText) findViewById(R.id.pagamento);
-                obs = (EditText) findViewById(R.id.obs);
-                int codigoPagamento = 1;
-                //Pedido ped = new Pedido(codigoPagamento, cliente.getText().toString(), tbpreco.getText().toString(),pagamento.getText().toString(),obs.getText().toString());
-
-                // testando retorno
-                //String retorno = ped.cadastraPedido();
-
-                //exibido parametros da classe Pedido
-                int duration = Toast.LENGTH_SHORT;
-                //Toast toast = Toast.makeText(context, retorno, duration);
-                //toast.show();
-
-                //limpando campos
-                cliente.setText("");
-                tbpreco.setText("");
-                pagamento.setText("");
-                obs.setText("");
+                Intent itens = new Intent(v.getContext(), ItemPedidoActivity.class);
+                startActivity(itens);
 
             }
 
-
         });
 
-        */
+
     }
 
 }

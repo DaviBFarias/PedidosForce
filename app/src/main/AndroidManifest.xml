@@ -48,9 +48,9 @@
         <activity
             android:name=".ProdutosActivity"
             android:label="@string/app_produtos" />
-
-
+        <activity
+            android:name=".ItemPedidoActivity"
+            android:label="@string/app_produtos" />
     </application>
-
 
 </manifest>
