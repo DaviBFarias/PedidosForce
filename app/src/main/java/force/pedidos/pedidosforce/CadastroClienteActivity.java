@@ -86,7 +86,7 @@ public class CadastroClienteActivity extends AppCompatActivity {
                 }
                 // verifica campos vazios da tela de cadastro.
                 else if(cpfCliente.getText().toString().equals("") ||nomeCliente.getText().toString().equals("") || enderecoCliente.getText().toString().equals("")
-                        || cidadeCliente.getText().toString().equals("") || cepCliente.getText().toString().equals("") || ufCliente.toString().equals("")){
+                        || cidadeCliente.getText().toString().equals("") || cepCliente.getText().toString().equals("") || ufCliente.getSelectedItem().toString().equals("UF")){
 
                     Toast.makeText(v.getContext(), "Preencha todos os campos para continuar!", Toast.LENGTH_SHORT).show();
 
@@ -122,7 +122,7 @@ public class CadastroClienteActivity extends AppCompatActivity {
 
                 // verifica campos vazios da tela de cadastro.
               else if(cpfCliente.getText().toString().equals("") ||nomeCliente.getText().toString().equals("") || enderecoCliente.getText().toString().equals("")
-                        || cidadeCliente.getText().toString().equals("") || cepCliente.getText().toString().equals("") || ufCliente.toString().equals("")){
+                        || cidadeCliente.getText().toString().equals("") || cepCliente.getText().toString().equals("") || ufCliente.getSelectedItem().toString().equals("UF")){
 
                     Toast.makeText(v.getContext(), "Preencha todos os campos para continuar!", Toast.LENGTH_SHORT).show();
 
