@@ -41,7 +41,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "    tabelaPreco    TEXT    NOT NULL,\n" +
                 "    formaPagamento TEXT    NOT NULL,\n" +
                 "    observacao     TEXT    NOT NULL,\n" +
-                "    idItens        INTEGER NOT NULL\n" +
                 ");");
         db.execSQL(stringBuilderCreateTable.toString());
 

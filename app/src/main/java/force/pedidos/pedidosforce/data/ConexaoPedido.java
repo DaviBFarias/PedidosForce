@@ -24,7 +24,37 @@ public class ConexaoPedido {
     }
 
     public void cadastrarPedido(Pedido pd){
-        //Não implementado
+        //Salvando cabeçalho dos pedidos
+        ContentValues contentValues = new ContentValues();
+
+        /*MONTA OS PARAMENTROS PARA REALIZAR INSERT NOS CAMPOS*/
+        contentValues.put("cgcCpf", pd.getCliente());
+        contentValues.put("tabelaPreco", pd.getTabelaPreco());
+        contentValues.put("formaPagamento", pd.getPagamento());
+        contentValues.put("observacao", pd.getObs());
+
+        /*REALIZANDO INSERT NA TABELA*/
+        databaseHelper.GetConexaoDataBase().insert("pedidos", null, contentValues);
+
+        //Salvando Itens do pedido
+        int idPedido = this.getIdUltimoPedidoSalvo();
+        ArrayList<ItemPedido> ip = new ArrayList<>();
+        ip = pd.getItens();
+        for (ItemPedido item : ip) {
+            //Salvando cabeçalho dos pedidos
+            contentValues = new ContentValues();
+
+            /*MONTA OS PARAMENTROS PARA REALIZAR INSERT NOS CAMPOS*/
+            contentValues.put("idPedido", idPedido);
+            contentValues.put("codProduto", item.getCodProduto());
+            contentValues.put("qtdProduto", item.getQtdProduto());
+            if(item.getObsItem() != null) {
+                contentValues.put("observacao", item.getObsItem());
+            }
+
+            /*REALIZANDO INSERT NA TABELA*/
+            databaseHelper.GetConexaoDataBase().insert("itens_pedido", null, contentValues);
+        }
     }
 
     public Integer excluirPedido(int CodPedido){
@@ -32,8 +62,22 @@ public class ConexaoPedido {
         return 0;
     }
 
-    public Pedido getPedido(int codPedido){
+    public Pedido getPedido(int idPedido){
         Pedido pd = new Pedido();
+        Cursor cursor = databaseHelper.GetConexaoDataBase().rawQuery("SELECT * FROM pedidos where id = "+idPedido, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do  {
+                pd.setIdPedido(cursor.getInt(cursor.getColumnIndex("id")));
+                pd.setCliente(cursor.getString(cursor.getColumnIndex("cgcCpf")));
+                pd.setTabelaPreco(cursor.getString(cursor.getColumnIndex("tabelaPreco")));
+                pd.setPagamento(cursor.getString(cursor.getColumnIndex("formaPagamento")));
+                pd.setObs(cursor.getString(cursor.getColumnIndex("observacao")));
+                pd.setItens(this.getItensPedido(idPedido));
+
+            } while(cursor.moveToNext());
+
+        }
         return pd;
     }
 
@@ -46,7 +90,7 @@ public class ConexaoPedido {
                 //Retornando Produtos
                 Pedido pd = new Pedido();
 
-                int idPedido = cursor.getInt(cursor.getColumnIndex("idPedido"));
+                int idPedido = cursor.getInt(cursor.getColumnIndex("id"));
                 pd.setIdPedido(idPedido);
                 pd.setCliente(cursor.getString(cursor.getColumnIndex("cgcCpf")));
                 pd.setTabelaPreco(cursor.getString(cursor.getColumnIndex("tabelaPreco")));
@@ -83,5 +127,10 @@ public class ConexaoPedido {
 
         }
         return itens;
+    }
+
+    public int getIdUltimoPedidoSalvo(){
+        Cursor cursor = databaseHelper.GetConexaoDataBase().rawQuery("SELECT max(id) as id FROM pedidos", null);
+        return cursor.getInt(cursor.getColumnIndex("id"));
     }
 }
