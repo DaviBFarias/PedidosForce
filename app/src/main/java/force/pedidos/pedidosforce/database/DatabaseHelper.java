@@ -40,15 +40,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "    cgcCpf         TEXT    NOT NULL,\n" +
                 "    tabelaPreco    TEXT    NOT NULL,\n" +
                 "    formaPagamento TEXT    NOT NULL,\n" +
-                "    observacao     TEXT    NOT NULL,\n" +
-                ");");
+                "    observacao     TEXT    NOT NULL);");
         db.execSQL(stringBuilderCreateTable.toString());
 
         stringBuilderCreateTable = new StringBuilder();
         stringBuilderCreateTable.append("CREATE TABLE produtos (\n" +
                 "    codProduto  INTEGER NOT NULL\n" +
                 "                        PRIMARY KEY,\n" +
-                "    nomeProduto TEXT    NOT NULL\n" +
+                "    nomeProduto TEXT    NOT NULL,\n" +
+                "    saldoProduto INTEGER    NOT NULL\n" +
                 ");");
         db.execSQL(stringBuilderCreateTable.toString());
 
@@ -76,13 +76,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "VALUES (28969835,'PE','Recife','Av Sebastiao','PF','Tamires Farias',56987678925);");
         db.execSQL(stringBuilderCreateTable.toString());
         stringBuilderCreateTable = new StringBuilder();
-        stringBuilderCreateTable.append("INSERT INTO produtos (nomeProduto,codProduto) VALUES ('Linha CD2345 Azul',1);");
+        stringBuilderCreateTable.append("INSERT INTO produtos (nomeProduto,codProduto,saldoProduto) VALUES ('Linha CD2345 Azul',1,7);");
         db.execSQL(stringBuilderCreateTable.toString());
         stringBuilderCreateTable = new StringBuilder();
-        stringBuilderCreateTable.append("INSERT INTO produtos (nomeProduto,codProduto) VALUES ('Linha CD2345 Amarela',2);");
+        stringBuilderCreateTable.append("INSERT INTO produtos (nomeProduto,codProduto,saldoProduto) VALUES ('Linha CD2345 Amarela',2,2);");
         db.execSQL(stringBuilderCreateTable.toString());
         stringBuilderCreateTable = new StringBuilder();
-        stringBuilderCreateTable.append("INSERT INTO produtos (nomeProduto,codProduto) VALUES ('Linha CD012 Verde',3);");
+        stringBuilderCreateTable.append("INSERT INTO produtos (nomeProduto,codProduto,saldoProduto) VALUES ('Linha CD012 Verde',3,5);");
         db.execSQL(stringBuilderCreateTable.toString());
 
 

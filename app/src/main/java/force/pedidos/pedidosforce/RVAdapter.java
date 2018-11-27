@@ -34,8 +34,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder>{
              cv = (CardView)itemView.findViewById(R.id.cv_item);
              nomeItem = (TextView)itemView.findViewById(R.id.nomeItem);
              saldoItem = (TextView)itemView.findViewById(R.id.saldoItem);
-             checkItem = (CheckBox)itemView.findViewById(R.id.checkItem);
-             qtdItem = (EditText)itemView.findViewById(R.id.qtdItem);
+             //checkItem = (CheckBox)itemView.findViewById(R.id.checkItem);
+             //qtdItem = (EditText)itemView.findViewById(R.id.qtdItem);
 
         }
     }

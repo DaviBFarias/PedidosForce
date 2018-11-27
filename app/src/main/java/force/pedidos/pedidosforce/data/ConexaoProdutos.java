@@ -11,10 +11,6 @@ import force.pedidos.pedidosforce.dominio.Produto;
 public class ConexaoProdutos {
     DatabaseHelper databaseHelper;
 
-    public ConexaoProdutos(){
-
-    }
-
     public ConexaoProdutos(Context context){
         databaseHelper =  new DatabaseHelper(context);
     }
@@ -57,6 +53,27 @@ public class ConexaoProdutos {
 
                 pr.setCodigoProduto(cursor.getInt(cursor.getColumnIndex("codProduto")));
                 pr.setNomeProduto(cursor.getString(cursor.getColumnIndex("nomeProduto")));
+                pr.setSaldoProduto(cursor.getInt(cursor.getColumnIndex("saldoProduto")));
+                Produtos.add(pr);
+
+            } while(cursor.moveToNext());
+
+        }
+        return Produtos;
+    }
+
+    public ArrayList<Produto> getProdutoArray (String nome) {
+        ArrayList<Produto> Produtos = new ArrayList<>();
+        Cursor cursor = databaseHelper.GetConexaoDataBase().rawQuery("SELECT * FROM produtos WHERE nomeProduto like '%"+nome+"%'", null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do  {
+                //Retornando Produtos
+                Produto pr = new Produto();
+
+                pr.setCodigoProduto(cursor.getInt(cursor.getColumnIndex("codProduto")));
+                pr.setNomeProduto(cursor.getString(cursor.getColumnIndex("nomeProduto")));
+                pr.setSaldoProduto(cursor.getInt(cursor.getColumnIndex("saldoProduto")));
                 Produtos.add(pr);
 
             } while(cursor.moveToNext());
